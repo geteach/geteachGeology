@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+        <title>Toggle Switch Example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500|Roboto+Slab|Material+Icons" type="text/css" />
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" />
+        <link rel="stylesheet" href="https://geteach.com/gti/drp/geology.css" type="text/css" />
+        <script>
+//video functions play/pause video along with changing icons           
+            function playPauseVideo(clicked_id) {
+                var playButton = document.getElementsByClassName("playoverlay");
+                var mediaIcon = document.getElementsByClassName("mediaIcon");
+                var video = document.getElementById(clicked_id);
+                if (video.paused){
+                    for(i = 0; i < playButton.length; i++) {
+                        playButton[i].style.display = 'none';
+                    }
+                    for(i = 0; i < mediaIcon.length; i++) {
+                        mediaIcon[i].style.display = 'block';
+                    }
+                    video.play();
+                } else {
+                    for(i = 0; i < playButton.length; i++) {
+                        playButton[i].style.display = 'block';
+                    }
+                    for(i = 0; i < mediaIcon.length; i++) {
+                        mediaIcon[i].style.display = 'none';
+                    }
+                    video.pause();
+                }
+                video.onended = function() {
+                    for(i = 0; i < playButton.length; i++) {
+                        playButton[i].style.display = 'block';
+                    }
+                    for(i = 0; i < mediaIcon.length; i++) {
+                        mediaIcon[i].style.display = 'none';
+                    }
+                    video.load();
+                };
+                document.querySelectorAll('.prev').forEach(item => {
+                    item.addEventListener('click', event => {
+                        for(i = 0; i < playButton.length; i++) {
+                        playButton[i].style.display = 'block';
+                    }
+                    for(i = 0; i < mediaIcon.length; i++) {
+                        mediaIcon[i].style.display = 'none';
+                    }
+                        video.load();
+                    })
+                })
+                document.querySelectorAll('.next').forEach(item => {
+                    item.addEventListener('click', event => {
+                        for(i = 0; i < playButton.length; i++) {
+                        playButton[i].style.display = 'block';
+                    }
+                    for(i = 0; i < mediaIcon.length; i++) {
+                        mediaIcon[i].style.display = 'none';
+                    }
+                        video.load();
+                    })
+                })                
+                
+            };
+//audio script     
+            function playPause() {                      
+                var audio = document.getElementById("audioI")
+                if (document.getElementById('playIcon').innerHTML  != '<i class="material-icons">play_arrow</i>'){
+                    document.getElementById('playIcon').innerHTML = '<i class="material-icons">play_arrow</i>';
+                    document.getElementById('playButton').innerHTML = 'Play';
+                    audio.pause();
+                } else {
+                    document.getElementById('playIcon').innerHTML = '<i class="material-icons">pause</i>';
+                    document.getElementById('playButton').innerHTML = 'Pause';
+                    audio.play();
+                }
+                audio.onended = function() {
+                    document.getElementById('playIcon').innerHTML = '<i class="material-icons">play_arrow</i>';
+                    document.getElementById('playButton').innerHTML = 'Play';
+                    audio.pause();
+                };
+            };
+        </script>          
+    </head>
+    <body>
+        <div id="container">
+            <main class="panelMain">
+                <div class="mediaContain">
+                    <div class="slideshow-container">
+<!--First media in Carousel--Best Image Aspect Ratio 3:2-->					
+                        <div class="mySlides fade">
+                            <img class="image"src="https://storage.googleapis.com/geteachkml4/seafloorage/seafloor480.jpg">
+                            <div class="captionDiv">
+                                <div class="caption" >Seafloor Age</div>
+                            </div>
+                        </div>
+ <!--Second media in Carousel--name of anchor link has to match the id of the video tag--replace mp4 and poster image below-->	                           
+                        <div class="mySlides fade">
+                            <a href="#" name="video1" onclick="playPauseVideo(this.name)" >
+                                <video class="videoMedia" id="video1" style="left: 50%;position: absolute;top: calc(50% - 10px);transform: translate(-50%, -50%);" width="480" height="270" poster="https://storage.googleapis.com/geteachkml4/npr/chapter1Poster.jpg">
+                                    <source src="https://storage.googleapis.com/geteachkml4/npr/cotton.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                </video>
+                                <div class="playoverlay" style="display:block;"></div>
+                                <span class="mediaIcon mdl-button mdl-button--icon mdl-js-button" id="mediaIcon" style="display:none;color:#DADCE0;left:3px;top:10px">
+                                    <i class="material-icons">pause</i>
+                                </span>
+                            </a>
+                            <div class="captionDiv">
+                                <div class="caption" >Chapter 1: Cotton</div>
+                            </div>
+                        </div>
+ <!--Third media in Carousel--name of anchor link has to match the id of the video tag--replace mp4 and poster image below-->	                   
+                        <div class="mySlides fade">     
+                            <a href="#" name="video2" onclick="playPauseVideo(this.name)" >                       
+                                <video class="videoMedia" id="video2" style="left: 50%;position: absolute;top: calc(50% - 10px);transform: translate(-50%, -50%);" width="480" height="270" poster="https://storage.googleapis.com/geteachkml4/npr/chapter2Poster.jpg">
+                                    <source src="https://storage.googleapis.com/geteachkml4/npr/machine.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                </video>
+                                <div class="playoverlay" style="display:block;"></div>
+                                <span class="mediaIcon mdl-button mdl-button--icon mdl-js-button" id="mediaIcon" style="display:none;color:#DADCE0;left:3px;top:10px">
+                                    <i class="material-icons">pause</i>
+                                </span>
+                            </a>
+                            <div class="captionDiv">
+                                <div class="caption" >Chapter 2: The Machines</div>
+                            </div>
+                        </div>
+<!--Fourth media in Carousel--Best Image Aspect Ratio 3:2-->	
+                        <div class="mySlides fade">
+                            <img class="image"src="https://storage.googleapis.com/geteachkml4/seafloorage/QuakeSmall2.png">
+                            <div class="captionDiv">
+                                <div class="caption" >2016 Earthquakes magnitude 5+</div>
+                            </div>
+                        </div>
+<!--Carousel next and previous icons--the onclick "plusSlides" function is at the bottom of this page-->	
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                </div>                
+                <div class="content">
+<!--Replace title text between div-->                    
+                    <div class="title">
+                        Toggle Switch with carousel images/video
+                    </div>
+                    <div class="description">               
+<!--Toggle Switch snippets-->                        
+                        <div class="slidecontainer" style="margin:15px 0 15px 10px;">
+                            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+                                <input type="checkbox" id="switch-1" onclick="toggleSwitch()" class="mdl-switch__input" >
+                                <span class="mdl-switch__label text" style="font-size: 16px;line-height: 25px;">Maryland</span>
+                            </label>
+                        </div>
+<!--Replace text for description--Every <p> needs to have a class="text"--Any html works-->                               
+                        <p class="text">Toggle Switch Description</p>
+                        <p class="text">Credit: <a href="https://mrdata.usgs.gov/geology/state/" target="_blank">USGS - Geologic maps of US states</a></p>
+                       </div>
+                    </div>
+                </div>
+<!--Best image height for footer is 24px with a max-width of 145px--> 
+<!--If you don't want the footer is it best to delete the html within the logoLeft/LogoRight Div -- You can hide links in these divs-->     
+                <div class="footer">
+                    <div class="logoLeft" style="display:none">
+                        <a href="https://twitter.com/geteach" target="_blank">
+                            <img src="https://storage.googleapis.com/geteachkml4/logogeteachtemp.png">
+                        </a>
+                    </div>
+                    <div class="logoRight" style="display:none">
+                        <a href="#$[overlay];show" class="hidelink" id="clickMapShow"></a>
+                        <a href="#$[overlay];hide" class="hidelink" id="clickMapHide"></a>
+                        <a href="#usgs;hide" class="hidelink" id="clickUsgsHide"></a>
+                        <a href="#md;hide" class="hidelink" id="clickMdHide"></a> 
+                        <a href="#$[flyto];flyto" class="hidelink" id="clickFlyTo"></a>             
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script>     
+//added js function for if toggle switch is checked click hidden links above           
+            function toggleSwitch(){
+                var mapOverlay = document.getElementById('switch-1');
+                if(mapOverlay.checked){
+                    document.getElementById('clickMapShow').click();
+                }else{
+                    document.getElementById('clickMapHide').click();
+                }                        
+            };
+//Onlaod function to make sure switches and overlays are reset            
+        window.onload = function() {
+            setTimeout(function() {
+            document.getElementById('clickFlyTo').click();    
+            document.getElementById('clickUsgsHide').click();
+            document.getElementById('clickMdHide').click();
+            }, 1000);
+        };
+//simple carousel script            
+var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slides[slideIndex-1].style.display = "block";
+            }        
+    </script>	
+    </body>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</html>
