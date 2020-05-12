@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Simple Audio with Image Video Carousel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500|Roboto+Slab|Material+Icons" type="text/css" />
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" />
+        <link rel="stylesheet" href="https://geteach.com/gti/drp/geology.css" type="text/css" />
+        <script>
+//Onlaod event to get audio duration            
+            window.onload = function () {
+                var aud = document.getElementById("audioI");
+                aud.onloadedmetadata = function() {
+                var length = aud.duration
+                var current_time = aud.currentTime;
+
+                // calculate total length of value
+                var totalLength = calculateTotalValue(length)
+                document.getElementById("end-time").innerHTML = totalLength;
+                document.getElementById("start-time").innerHTML = '00:00';
+                function calculateTotalValue(length) {
+                var minutes = Math.floor(length / 60),
+                    seconds_int = length - minutes * 60,
+                    seconds_str = seconds_int.toString(),
+                    seconds = seconds_str.substr(0, 2),
+                    time = minutes + ':' + seconds
+
+                return time;
+                }
+              }  
+            }
+//progress bar and times            
+            function initProgressBars() {
+                var player = document.getElementById('audioI');
+                var length = player.duration
+                var current_time = player.currentTime;
+
+                // calculate total length of value
+                var totalLength = calculateTotalValue(length)
+                document.getElementById("end-time").innerHTML = totalLength;
+
+                // calculate current value time
+                var currentTime = calculateCurrentValue(current_time);
+                document.getElementById("start-time").innerHTML = currentTime;
+
+                var progressbar = document.getElementById('progressbar1');
+                progressbar.MaterialProgress.setProgress(player.currentTime / player.duration * 100);
+                progressbar.addEventListener("click", seek);
+
+
+                function seek(event) {
+                    var percent = event.offsetX / this.offsetWidth;
+                    player.currentTime = percent * player.duration;
+                    progressbar.value = percent / 100;
+                }
+                function calculateTotalValue(length) {
+                var minutes = Math.floor(length / 60),
+                    seconds_int = length - minutes * 60,
+                    seconds_str = seconds_int.toString(),
+                    seconds = seconds_str.substr(0, 2),
+                    time = minutes + ':' + seconds
+
+                return time;
+                }
+
+                function calculateCurrentValue(currentTime) {
+                var current_hour = parseInt(currentTime / 3600) % 24,
+                    current_minute = parseInt(currentTime / 60) % 60,
+                    current_seconds_long = currentTime % 60,
+                    current_seconds = current_seconds_long.toFixed(),
+                    current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
+
+                return current_time;
+                }
+            };
+
+ //audio script
+            function playPause() {
+                var audio = document.getElementById("audioI")
+                if (document.getElementById('playIcon').innerHTML  != '<i class="material-icons">play_arrow</i>') {
+                    document.getElementById('playIcon').innerHTML = '<i class="material-icons">play_arrow</i>';
+                    document.getElementById('playButton').innerHTML = 'Play';
+                    audio.pause();
+                } else {
+                    document.getElementById('playIcon').innerHTML = '<i class="material-icons">pause</i>';
+                    document.getElementById('playButton').innerHTML = 'Pause';
+                    audio.play();
+                }
+                audio.onended = function() {
+                    document.getElementById('playIcon').innerHTML = '<i class="material-icons">play_arrow</i>';
+                    document.getElementById('playButton').innerHTML = 'Play';
+                    audio.pause();
+                };
+            };
+        </script>
+        <style>
+            .mdl-progress>.progressbar {
+                background-color: #2979ff;
+                z-index: 1;
+                left: 0;
+                border-radius: 20px;
+            }
+            .mdl-progress>.bufferbar {
+                background-image: linear-gradient(to right,rgba(255,255,255,.7),rgba(255,255,255,.7)),linear-gradient(to right,rgb(96,125,139),rgb(96,125,139));
+                z-index: 0;
+                left: 0;
+                border-radius: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <main class="panelMain">
+                <div class="mediaContain">
+                    <div class="slideshow-container">
+<!--First media in Carousel--Best Image Aspect Ratio 3:2-->					
+                        <div class="mySlides fade">
+                            <img class="image"src="https://storage.googleapis.com/geteachkml4/seafloorage/seafloor480.jpg">
+                            <div class="captionDiv">
+                                <div class="caption" >Seafloor Age</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+<!--Replace title text between div-->	                    
+                    <div class="title">
+                        One Image with Audio and progress bar
+                    </div>
+<!--Replace mp3 source-->	                    
+                    <audio id="audioI" style="display:none" ontimeupdate="initProgressBars()" >
+                        <source src="https://storage.googleapis.com/geteachkml4/simpleAudio.mp3" type="audio/mpeg">
+                            Your browser does not support the audio tag.
+                    </audio>
+<!--Play/Pause Progress Bar Container-->	                      
+                    <div style="width:100%;height:60px;">
+<!--Play/Pause button-->	                        
+                        <div onclick="playPause()" class="mdl-chip mdl-chip--contact" style="width:85px;margin-left: 8px;float:left;">
+                            <span class="mdl-chip__contact mdl-color-text--white" style="margin-right: 5px;"id="playIcon"><i class="material-icons">play_arrow</i></span>
+                            <span class="mdl-chip__text" id="playButton">Play</span>
+                        </div>
+<!--Progress Bar-->	                        
+                        <div style="width:175px;float:right;margin-right:10px;margin-top:23px">
+                            <div id ="progressbar1" class ="mdl-progress mdl-js-progress" style="height:8px;"></div>
+                            <div id="counter" style="width:100%;height:24px;">
+                                <div id="start-time" class="text" style="float:left;width:48%;"></div>
+                                <div id="end-time" class="text" style="float:right;width:48%;text-align: right;"></div>
+                            </div>
+                        </div>
+                    </div>
+<!--Replace text for description--Every <p> needs to have a class="text"--Any html works-->                    
+                    <div class="description">
+                        <p class="text">In this panel there is one images</p>
+                        <p class="text">In addition to the media, there is an audio button in the panel along with a progress bar.</p>
+                        <p class="text">Click the progress bar to move around the recording.</p>
+                    </div>
+                </div>
+<!--Best image height for footer is 24px with a max-width of 145px--> 
+<!--If you don't want the footer is it best to delete the html within the logoLeft/LogoRight Div-->                 
+                <div class="footer">
+                    <div class="logoLeft">
+                        <a href="https://twitter.com/geteach" target="_blank">
+                            <img src="https://storage.googleapis.com/geteachkml4/logogeteachtemp.png" >
+                        </a>
+                    </div>
+                    <div class="logoRight" style="display:none">
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>      
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</html>
