@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Layers Option with Panel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500|Roboto+Slab|Material+Icons" type="text/css" />
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" />
+        <link rel="stylesheet" href="https://geteach.com/gti/drp/scripts/geoLayers.css" type="text/css" />
+        <link rel="stylesheet" href="https://geteach.com/gti/drp/scripts/geology0518.css" type="text/css" />      
+    </head>
+    <body>
+        <div id="container">
+            <main class="panelMain">
+                <div class="mediaContain">
+                    <div class="slideshow-container">
+<!--First media in Carousel--Best Image Aspect Ratio 3:2-->					
+                        <div class="mySlides fade">
+                            <img class="image"src="https://storage.googleapis.com/geteachkml4/seafloorage/seafloor480.jpg">
+                            <div class="captionDiv">
+                                <div class="caption" >Seafloor Age</div>
+                            </div>
+                        </div>
+ <!--Second media in Carousel--# the name of anchor link to match the id ex. 1 for name and Video1 for video id--replace mp4 and poster image below-->	                           
+                        <div class="mySlides fade">
+                            <a href="#" name="1" onclick="playPauseVideo(this.name)"  >
+                                <video class="videoMedia" id="video1"  width="480" height="270" poster="https://storage.googleapis.com/geteachkml4/npr/chapter1Poster.jpg">
+                                    <source src="https://storage.googleapis.com/geteachkml4/npr/cotton.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                </video>
+                                <div class="playoverlay" style="display:block;"></div>
+                                <span class="mediaIcon mdl-button mdl-button--icon mdl-js-button">
+                                    <i class="material-icons">pause</i>
+                                </span>
+                            </a>
+ <!--Second media caption--progress bar, start-time, end-time ids must match/add the anchor number from above ex. progressbar1, start-time1, end-time1-->	                              
+                            <div class="captionDiv" style="padding:0">
+                                <div id ="progressbar1" class ="mdl-progress mdl-js-progress progressbar"></div>
+                                <div id="counter" class="counter">                               
+                                    <div id="start-time1" class="start">00:00</div>
+                                    <div class="captionVideo">Chapter 1: Cotton</div>
+                                    <div id="end-time1" class="end">2:32</div>
+                                </div>
+                            </div>
+                        </div>
+  <!--Third media in Carousel--# the name of anchor link to match the id ex. 2 for name and Video2 for video id--replace mp4 and poster image below-->	                   
+                        <div class="mySlides fade">     
+                            <a href="#" name="2" onclick="playPauseVideo(this.name)" >                       
+                                <video class="videoMedia" id="video2" width="480" height="270" poster="https://storage.googleapis.com/geteachkml4/npr/chapter2Poster.jpg">
+                                    <source src="https://storage.googleapis.com/geteachkml4/npr/machine.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                </video>
+                                <div class="playoverlay" style="display:block;"></div>
+                                <span class="mediaIcon mdl-button mdl-button--icon mdl-js-button">
+                                    <i class="material-icons">pause</i>
+                                </span>
+                            </a>
+<!--Third media caption--progress bar, start-time, end-time ids must match/add the anchor number from above ex. progressbar2, start-time2, end-time2-->	                           
+                            <div class="captionDiv" style="padding:0">
+                                <div id ="progressbar2" class ="mdl-progress mdl-js-progress progressbar"></div>
+                                <div id="counter" class="counter">
+                                    <div id="start-time2" class="start">00:00</div>
+                                    <div class="captionVideo">Chapter 2: The Machines</div>
+                                    <div id="end-time2" class="end">1:33</div>
+                                </div>
+                            </div>
+                        </div>
+<!--Fourth media in Carousel--Best Image Aspect Ratio 3:2-->	
+                        <div class="mySlides fade">
+                            <img class="image"src="https://storage.googleapis.com/geteachkml4/seafloorage/QuakeSmall2.png">
+                            <div class="captionDiv">
+                                <div class="caption">2016 Earthquakes magnitude 5+</div>
+                            </div>
+                        </div>
+<!--Carousel next and previous icons--the onclick "plusSlides" function is at the bottom of this page-->	
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                </div>
+                <div class="content" id="content">
+<!--Replace title text between div-->	                    
+                    <div class="title">
+                         Image with Video Carousel with audio panel
+                    </div>
+<!--Replace mp3 source-->	                    
+                    <audio id="audioI" style="display:none" >
+                        <source src="https://storage.googleapis.com/geteachkml4/simpleAudio.mp3" type="audio/mpeg">
+                            Your browser does not support the audio tag.
+                    </audio>
+                    <span onclick="playPause()" class="mdl-chip mdl-chip--contact audioSpan" style="width:85px;margin-left: 8px;">
+                        <span class="mdl-chip__contact mdl-color-text--white" style="margin-right: 5px;"id="playIcon"><i class="material-icons">play_arrow</i></span>
+                        <span class="mdl-chip__text" id="playButton">Play</span>
+                    </span>
+<!--Replace text for description--Every <p> needs to have a class="text"--Any html works-->                    
+                    <div class="description">
+                    </div>
+                </div>
+<!--End Panel-->
+<!--Start Layer...Don't touch-->               
+                <div id="layers" class="close">
+<!--Replace title text between div-->	                    
+                    <div class="layers-header">
+                        <div class="layers-title">
+                            Geology | Layers
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="description">
+                            <p class="text">Below are toggle switches for varying kml files. Please note, some larger/complex files take time to load.</p>
+                            <button class="accordion">Geohazards</button>
+                            <div class="panel">
+                              <div class="text">
+                                <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='earthquakes'><input type='checkbox' id='earthquakes' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle' checked /><span class='mdl-switch__label toggleLabel'>Earthquakes</span></label></div>
+                                <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='holocenevolcanoes'><input type='checkbox' id='holocenevolcanoes' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Holocene Volcanoes</span></label></div>
+                                <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='pleistocenevolcanoes'><input type='checkbox' id='pleistocenevolcanoes' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Pleistocene Volcanoes</span></label></div>
+                                <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='boundaries'><input type='checkbox' id='boundaries' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Plate Boundaries</span></label></div>                                
+                            </div>
+                            </div>
+                            <button class="accordion">US Quaternary Geology</button>
+                            <div class="panel">
+                                <div class="text">
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='2d'><input type='checkbox' id='2d' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Velocities 2d</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='3d'><input type='checkbox' id='3d' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Velocities 3d</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='hs'><input type='checkbox' id='hs' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Volocities High Sigma Stations</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='classb'><input type='checkbox' id='classb' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>US Faults Class B</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='historic'><input type='checkbox' id='historic' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>US Faults Historic</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='latequaternary'><input type='checkbox' id='latequaternary' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>US Faults Late Quaternary</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='latestquaternary'><input type='checkbox' id='latestquaternary' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>US Faults Latest Quaternary</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='middlelatequaternary'><input type='checkbox' id='middlelatequaternary' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>US Faults Middle and Late Quaternary</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='undifferentiatedquaternary'><input type='checkbox' id='undifferentiatedquaternary' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>US Faults Undifferntiated Quaternary</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='unspecifiedage'><input type='checkbox' id='unspecifiedage' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>US Faults Unspecified Age</span></label></div>                                    
+                                </div>                             
+                            </div>
+                            <button class="accordion">US Bedrock Geology</button>
+                            <div class="panel">
+                                <div class="text">
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='usbedrock'><input type='checkbox' id='usbedrock' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>US Bedrock Geology</span></label></div>
+                                </div>                             
+                            </div>
+                            <button class="accordion">US States Bedrock Geology</button>
+                            <div class="panel">
+                                <div class="text">
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='algeol'><input type='checkbox' id='algeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Alabama</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='azgeol'><input type='checkbox' id='azgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Arizona</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='argeol'><input type='checkbox' id='argeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Arkansas</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='cageol'><input type='checkbox' id='cageol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>California</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='cogeol'><input type='checkbox' id='cogeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Colorado</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='ctgeol'><input type='checkbox' id='ctgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Connecticut</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='degeol'><input type='checkbox' id='degeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Delaware</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='flgeol'><input type='checkbox' id='flgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Florida</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='gageol'><input type='checkbox' id='gageol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Georgia</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='idgeol'><input type='checkbox' id='idgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Idaho</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='ilgeol'><input type='checkbox' id='ilgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Illinois</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='ingeol'><input type='checkbox' id='ingeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Indiana</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='iageol'><input type='checkbox' id='iageol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Iowa</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='ksgeol'><input type='checkbox' id='ksgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Kansas</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='kygeol'><input type='checkbox' id='kygeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Kentucky</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='lageol'><input type='checkbox' id='lageol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Louisiana</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='megeol'><input type='checkbox' id='megeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Maine</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='mdgeol'><input type='checkbox' id='mdgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Maryland</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='mageol'><input type='checkbox' id='mageol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Massachusetts</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='migeol'><input type='checkbox' id='migeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Michigan</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='mngeol'><input type='checkbox' id='mngeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Minnesota</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='msgeol'><input type='checkbox' id='msgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Mississippi</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='mogeol'><input type='checkbox' id='mogeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Missouri</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='mtgeol'><input type='checkbox' id='mtgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Montana</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='negeol'><input type='checkbox' id='negeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Nebraska</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='nvgeol'><input type='checkbox' id='nvgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Nevada</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='nhgeol'><input type='checkbox' id='nhgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>New Hampshire</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='njgeol'><input type='checkbox' id='njgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>New Jersey</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='nmgeol'><input type='checkbox' id='nmgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>New Mexico</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='nygeol'><input type='checkbox' id='nygeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>New York</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='ncgeol'><input type='checkbox' id='ncgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>North Carolina</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='ndgeol'><input type='checkbox' id='ndgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>North Dakota</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='ohgeol'><input type='checkbox' id='ohgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Ohio</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='okgeol'><input type='checkbox' id='okgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Oklahoma</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='orgeol'><input type='checkbox' id='orgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Oregon</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='pageol'><input type='checkbox' id='pageol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Pennsylvania</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='rigeol'><input type='checkbox' id='rigeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Rhode Island</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='scgeol'><input type='checkbox' id='scgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>South Carolina</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='sdgeol'><input type='checkbox' id='sdgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>South Dakota</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='tngeol'><input type='checkbox' id='tngeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Tennessee</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='txgeol'><input type='checkbox' id='txgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Texas</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='utgeol'><input type='checkbox' id='utgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Utah</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='vtgeol'><input type='checkbox' id='vtgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Vermont</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='vageol'><input type='checkbox' id='vageol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Virginia</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='wageol'><input type='checkbox' id='wageol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Washington</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='wvgeol'><input type='checkbox' id='wvgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>West Virginia</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='wigeol'><input type='checkbox' id='wigeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Wisconsin</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='wygeol'><input type='checkbox' id='wygeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Wyoming</span></label></div>                                    
+                                </div>                             
+                            </div>                                                        
+                            <button class="accordion">Other - Geology</button>
+                            <div class="panel panel1">
+                                <div class="text">
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='macrostrat'><input type='checkbox' id='macrostrat' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Macrostrat - Geologic map</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='north'><input type='checkbox' id='north' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Geologic Map of North America - North</span></label></div>
+                                    <div class='slidecontainer'><label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='south'><input type='checkbox' id='south' onclick='toggleSwitch(this.id)' class='mdl-switch__input  layerToggle'  /><span class='mdl-switch__label toggleLabel'>Geologic Map of North America - South</span></label></div>                                    
+                                </div>                           
+                             </div> 
+                        </div>
+                    </div>    
+                </div>                
+<!--Best image height for footer is 24px with a max-width of 145px--> 
+<!--If you don't want the footer is it best to delete the html within the logoLeft/LogoRight Div-->                 
+                <div class="footer">
+                    <div class="logoLeft">
+                        <a href="https://twitter.com/geteach" target="_blank">
+                            <img src="https://storage.googleapis.com/geteachkml4/logogeteachtemp.png" >
+                        </a>
+                    </div>
+                    <div class="layerLinks" style="display:none">
+                        <a href='#earthquakes;show' class='showlink' id='earthquakesShow'></a>
+                        <a href='#holocenevolcanoes;show' class='showlink' id='holocenevolcanoesShow'></a>
+                        <a href='#pleistocenevolcanoes;show' class='showlink' id='pleistocenevolcanoesShow'></a>
+                        <a href='#boundaries;show' class='showlink' id='boundariesShow'></a>
+                        <a href='#2d;show' class='showlink' id='2dShow'></a>
+                        <a href='#3d;show' class='showlink' id='3dShow'></a>
+                        <a href='#hs;show' class='showlink' id='hsShow'></a>
+                        <a href='#classb;show' class='showlink' id='classbShow'></a>
+                        <a href='#historic;show' class='showlink' id='historicShow'></a>
+                        <a href='#latequaternary;show' class='showlink' id='latequaternaryShow'></a>
+                        <a href='#latestquaternary;show' class='showlink' id='latestquaternaryShow'></a>
+                        <a href='#middlelatequaternary;show' class='showlink' id='middlelatequaternaryShow'></a>
+                        <a href='#undifferentiatedquaternary;show' class='showlink' id='undifferentiatedquaternaryShow'></a>
+                        <a href='#unspecifiedage;show' class='showlink' id='unspecifiedageShow'></a>
+                        <a href='#usbedrock;show' class='showlink' id='usbedrockShow'></a>
+                        <a href='#algeol;show' class='showlink' id='algeolShow'></a>
+                        <a href='#azgeol;show' class='showlink' id='azgeolShow'></a>
+                        <a href='#argeol;show' class='showlink' id='argeolShow'></a>
+                        <a href='#cageol;show' class='showlink' id='cageolShow'></a>
+                        <a href='#cogeol;show' class='showlink' id='cogeolShow'></a>
+                        <a href='#ctgeol;show' class='showlink' id='ctgeolShow'></a>
+                        <a href='#degeol;show' class='showlink' id='degeolShow'></a>
+                        <a href='#flgeol;show' class='showlink' id='flgeolShow'></a>
+                        <a href='#gageol;show' class='showlink' id='gageolShow'></a>
+                        <a href='#idgeol;show' class='showlink' id='idgeolShow'></a>
+                        <a href='#ilgeol;show' class='showlink' id='ilgeolShow'></a>
+                        <a href='#ingeol;show' class='showlink' id='ingeolShow'></a>
+                        <a href='#iageol;show' class='showlink' id='iageolShow'></a>
+                        <a href='#ksgeol;show' class='showlink' id='ksgeolShow'></a>
+                        <a href='#kygeol;show' class='showlink' id='kygeolShow'></a>
+                        <a href='#lageol;show' class='showlink' id='lageolShow'></a>
+                        <a href='#megeol;show' class='showlink' id='megeolShow'></a>
+                        <a href='#mdgeol;show' class='showlink' id='mdgeolShow'></a>
+                        <a href='#mageol;show' class='showlink' id='mageolShow'></a>
+                        <a href='#migeol;show' class='showlink' id='migeolShow'></a>
+                        <a href='#mngeol;show' class='showlink' id='mngeolShow'></a>
+                        <a href='#msgeol;show' class='showlink' id='msgeolShow'></a>
+                        <a href='#mogeol;show' class='showlink' id='mogeolShow'></a>
+                        <a href='#mtgeol;show' class='showlink' id='mtgeolShow'></a>
+                        <a href='#negeol;show' class='showlink' id='negeolShow'></a>
+                        <a href='#nvgeol;show' class='showlink' id='nvgeolShow'></a>
+                        <a href='#nhgeol;show' class='showlink' id='nhgeolShow'></a>
+                        <a href='#njgeol;show' class='showlink' id='njgeolShow'></a>
+                        <a href='#nmgeol;show' class='showlink' id='nmgeolShow'></a>
+                        <a href='#nygeol;show' class='showlink' id='nygeolShow'></a>
+                        <a href='#ncgeol;show' class='showlink' id='ncgeolShow'></a>
+                        <a href='#ndgeol;show' class='showlink' id='ndgeolShow'></a>
+                        <a href='#ohgeol;show' class='showlink' id='ohgeolShow'></a>
+                        <a href='#okgeol;show' class='showlink' id='okgeolShow'></a>
+                        <a href='#orgeol;show' class='showlink' id='orgeolShow'></a>
+                        <a href='#pageol;show' class='showlink' id='pageolShow'></a>
+                        <a href='#rigeol;show' class='showlink' id='rigeolShow'></a>
+                        <a href='#scgeol;show' class='showlink' id='scgeolShow'></a>
+                        <a href='#sdgeol;show' class='showlink' id='sdgeolShow'></a>
+                        <a href='#tngeol;show' class='showlink' id='tngeolShow'></a>
+                        <a href='#txgeol;show' class='showlink' id='txgeolShow'></a>
+                        <a href='#utgeol;show' class='showlink' id='utgeolShow'></a>
+                        <a href='#vtgeol;show' class='showlink' id='vtgeolShow'></a>
+                        <a href='#vageol;show' class='showlink' id='vageolShow'></a>
+                        <a href='#wageol;show' class='showlink' id='wageolShow'></a>
+                        <a href='#wvgeol;show' class='showlink' id='wvgeolShow'></a>
+                        <a href='#wigeol;show' class='showlink' id='wigeolShow'></a>
+                        <a href='#wygeol;show' class='showlink' id='wygeolShow'></a>
+                        <a href='#macrostrat;show' class='showlink' id='macrostratShow'></a>
+                        <a href='#north;show' class='showlink' id='northShow'></a>
+                        <a href='#south;show' class='showlink' id='southShow'></a>
+                        <a href='#earthquakes;hide' class='hidelink' id='earthquakesHide'></a>
+                        <a href='#holocenevolcanoes;hide' class='hidelink' id='holocenevolcanoesHide'></a>
+                        <a href='#pleistocenevolcanoes;hide' class='hidelink' id='pleistocenevolcanoesHide'></a>
+                        <a href='#boundaries;hide' class='hidelink' id='boundariesHide'></a>
+                        <a href='#2d;hide' class='hidelink' id='2dHide'></a>
+                        <a href='#3d;hide' class='hidelink' id='3dHide'></a>
+                        <a href='#hs;hide' class='hidelink' id='hsHide'></a>
+                        <a href='#classb;hide' class='hidelink' id='classbHide'></a>
+                        <a href='#historic;hide' class='hidelink' id='historicHide'></a>
+                        <a href='#latequaternary;hide' class='hidelink' id='latequaternaryHide'></a>
+                        <a href='#latestquaternary;hide' class='hidelink' id='latestquaternaryHide'></a>
+                        <a href='#middlelatequaternary;hide' class='hidelink' id='middlelatequaternaryHide'></a>
+                        <a href='#undifferentiatedquaternary;hide' class='hidelink' id='undifferentiatedquaternaryHide'></a>
+                        <a href='#unspecifiedage;hide' class='hidelink' id='unspecifiedageHide'></a>
+                        <a href='#usbedrock;hide' class='hidelink' id='usbedrockHide'></a>
+                        <a href='#algeol;hide' class='hidelink stateHide' id='algeolHide'></a>
+                        <a href='#azgeol;hide' class='hidelink stateHide' id='azgeolHide'></a>
+                        <a href='#argeol;hide' class='hidelink stateHide' id='argeolHide'></a>
+                        <a href='#cageol;hide' class='hidelink stateHide' id='cageolHide'></a>
+                        <a href='#cogeol;hide' class='hidelink stateHide' id='cogeolHide'></a>
+                        <a href='#ctgeol;hide' class='hidelink stateHide' id='ctgeolHide'></a>
+                        <a href='#degeol;hide' class='hidelink stateHide' id='degeolHide'></a>
+                        <a href='#flgeol;hide' class='hidelink stateHide' id='flgeolHide'></a>
+                        <a href='#gageol;hide' class='hidelink stateHide' id='gageolHide'></a>
+                        <a href='#idgeol;hide' class='hidelink stateHide' id='idgeolHide'></a>
+                        <a href='#ilgeol;hide' class='hidelink stateHide' id='ilgeolHide'></a>
+                        <a href='#ingeol;hide' class='hidelink stateHide' id='ingeolHide'></a>
+                        <a href='#iageol;hide' class='hidelink stateHide' id='iageolHide'></a>
+                        <a href='#ksgeol;hide' class='hidelink stateHide' id='ksgeolHide'></a>
+                        <a href='#kygeol;hide' class='hidelink stateHide' id='kygeolHide'></a>
+                        <a href='#lageol;hide' class='hidelink stateHide' id='lageolHide'></a>
+                        <a href='#megeol;hide' class='hidelink stateHide' id='megeolHide'></a>
+                        <a href='#mdgeol;hide' class='hidelink stateHide' id='mdgeolHide'></a>
+                        <a href='#mageol;hide' class='hidelink stateHide' id='mageolHide'></a>
+                        <a href='#migeol;hide' class='hidelink stateHide' id='migeolHide'></a>
+                        <a href='#mngeol;hide' class='hidelink stateHide' id='mngeolHide'></a>
+                        <a href='#msgeol;hide' class='hidelink stateHide' id='msgeolHide'></a>
+                        <a href='#mogeol;hide' class='hidelink stateHide' id='mogeolHide'></a>
+                        <a href='#mtgeol;hide' class='hidelink stateHide' id='mtgeolHide'></a>
+                        <a href='#negeol;hide' class='hidelink stateHide' id='negeolHide'></a>
+                        <a href='#nvgeol;hide' class='hidelink stateHide' id='nvgeolHide'></a>
+                        <a href='#nhgeol;hide' class='hidelink stateHide' id='nhgeolHide'></a>
+                        <a href='#njgeol;hide' class='hidelink stateHide' id='njgeolHide'></a>
+                        <a href='#nmgeol;hide' class='hidelink stateHide' id='nmgeolHide'></a>
+                        <a href='#nygeol;hide' class='hidelink stateHide' id='nygeolHide'></a>
+                        <a href='#ncgeol;hide' class='hidelink stateHide' id='ncgeolHide'></a>
+                        <a href='#ndgeol;hide' class='hidelink stateHide' id='ndgeolHide'></a>
+                        <a href='#ohgeol;hide' class='hidelink stateHide' id='ohgeolHide'></a>
+                        <a href='#okgeol;hide' class='hidelink stateHide' id='okgeolHide'></a>
+                        <a href='#orgeol;hide' class='hidelink stateHide' id='orgeolHide'></a>
+                        <a href='#pageol;hide' class='hidelink stateHide' id='pageolHide'></a>
+                        <a href='#rigeol;hide' class='hidelink stateHide' id='rigeolHide'></a>
+                        <a href='#scgeol;hide' class='hidelink stateHide' id='scgeolHide'></a>
+                        <a href='#sdgeol;hide' class='hidelink stateHide' id='sdgeolHide'></a>
+                        <a href='#tngeol;hide' class='hidelink stateHide' id='tngeolHide'></a>
+                        <a href='#txgeol;hide' class='hidelink stateHide' id='txgeolHide'></a>
+                        <a href='#utgeol;hide' class='hidelink stateHide' id='utgeolHide'></a>
+                        <a href='#vtgeol;hide' class='hidelink stateHide' id='vtgeolHide'></a>
+                        <a href='#vageol;hide' class='hidelink stateHide' id='vageolHide'></a>
+                        <a href='#wageol;hide' class='hidelink stateHide' id='wageolHide'></a>
+                        <a href='#wvgeol;hide' class='hidelink stateHide' id='wvgeolHide'></a>
+                        <a href='#wigeol;hide' class='hidelink stateHide' id='wigeolHide'></a>
+                        <a href='#wygeol;hide' class='hidelink stateHide' id='wygeolHide'></a>
+                        <a href='#macrostrat;hide' class='hidelink' id='macrostratHide'></a>
+                        <a href='#north;hide' class='hidelink' id='northHide'></a>
+                        <a href='#south;hide' class='hidelink' id='southHide'></a>                                               
+                    </div>
+                    <div class="logoRight layersToggle" onclick="classchange()">
+                        <span>
+                            <button id="demo-menu-top-left" class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons" id="layerIcon">layers</i>
+                            </button>
+                        </span>
+                        <span class="text" id="layerText">
+                            Layers
+                        </span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+    <script src="https://geteach.com/gti/drp/scripts/geology0516v2.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</html>
