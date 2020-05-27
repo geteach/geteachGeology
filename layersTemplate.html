@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Layers Option with Meida Carousel</title>
+        <title>Layers Option with Meida Carousel and toggle switch</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500|Roboto+Slab|Material+Icons" type="text/css" />
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" />
@@ -93,6 +93,13 @@
                     </span>
 <!--Replace text for description--Every <p> needs to have a class="text"--Any html works-->
                     <div class="description">
+<!--Panel Toggle Switch change the id to 'layerid'+ _panel (ex. for='earthquakes_panel' id='earthquakes_panel' and change name='earthquake') -->
+                        <div class='slidecontainer'style="margin-left:0px;">
+                            <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='earthquakes_panel'>
+                                <input type='checkbox' id='earthquakes_panel' name='earthquakes' onclick='togglePanel(this.name)' class='mdl-switch__input' unchecked />
+                                <span class='mdl-switch__label toggleLabel'>Earthquakes</span>
+                            </label>
+                        </div>
                         <p class="text">Replace Description</p>
                     </div>
                 </div>
@@ -225,6 +232,12 @@
                                         </label>
                                     </div>
                                     <div class='slidecontainer'>
+                                        <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='akgeol'>
+                                            <input type='checkbox' id='akgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
+                                            <span class='mdl-switch__label toggleLabel'>Alaska* (1k Raster)</span>
+                                        </label>
+                                    </div>
+                                    <div class='slidecontainer'>
                                         <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='azgeol'>
                                             <input type='checkbox' id='azgeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
                                             <span class='mdl-switch__label toggleLabel'>Arizona (8.2M Uncompressed)</span>
@@ -270,6 +283,12 @@
                                         <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='gageol'>
                                             <input type='checkbox' id='gageol' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
                                             <span class='mdl-switch__label toggleLabel'>Georgia (11.3M Uncompressed)</span>
+                                        </label>
+                                    </div>
+                                    <div class='slidecontainer'>
+                                        <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='higeol'>
+                                            <input type='checkbox' id='higeol' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
+                                            <span class='mdl-switch__label toggleLabel'>Hawaii* (51.5M Uncompressed)</span>
                                         </label>
                                     </div>
                                     <div class='slidecontainer'>
@@ -558,6 +577,6 @@
             </main>
         </div>
     </body>
-    <script src="https://geteach.com/gti/drp/scripts/geology0524.js"></script>
+    <script src="https://geteach.com/gti/drp/scripts/geology0527.js"></script>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </html>
