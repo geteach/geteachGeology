@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Full Screen Simple Audio with Image Video Carousel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500|Roboto+Slab|Material+Icons" type="text/css" />
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" />
+        <link rel="stylesheet" href="https://geteach.com/gti/drp/scripts/egew.css" type="text/css" />
+	</head>
+	<body>
+		<div class="titleContain">
+<!--Replace bacground image for splash screen Panel on desktop has a width of 480px screens under 600px width panel resizes to 360px -->
+            <main class="fullScreenmain" style="background-image:url('https://geteach.com//gti/drp/full.jpg')">
+                <div class="containerFullScreen" id="FullScreen">
+<!--Hidden scroll up div for portrait mode phones...It should be hidden in all other circumstances-->
+                    <div class="scrollup" id="scrollHeader">
+                        <div class="title" style="font-size: 26px;font-weight: 500;float:left;">Title of Panel</div>
+                        <div class="title" style="font-size: 26px;font-weight: 500;float:right;color:#DADCE0;">
+                            <span class="material-icons">
+                                expand_less
+                            </span>
+                        </div>
+                    </div>
+<!--Large Panel starts here -->
+                    <main class="panelMain">
+                        <div class="mediaContain">
+                            <div class="slideshow-container">
+        <!--First media in Carousel--Best Image Aspect Ratio 3:2 Replace Image Source (src) bellow-->
+                                <div class="mySlides fade">
+                                    <img class="image"src="https://storage.googleapis.com/geteachkml4/seafloorage/seafloor480.jpg">
+                                    <div class="captionDiv">
+                                        <div class="caption" >Replace Caption</div>
+                                    </div>
+                                </div>
+         <!--Second media in Carousel--# the name of anchor link to match the id ex. 1 for name and Video1 for video id--replace video source (src) mp4 and poster image below-->
+                                <div class="mySlides fade">
+        <!--name="x" replace name="1" then add the number 1 to video id...replace to video (id="video1") in video tag-->
+                                    <a href="#" name="1" onclick="playPauseVideo(this.name)"  >
+                                        <video class="videoMedia" id="video1"  width="480" height="270" poster="https://storage.googleapis.com/geteachkml4/npr/chapter1Poster.jpg">
+                                            <source src="https://storage.googleapis.com/geteachkml4/npr/cotton.mp4" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                        </video>
+                                        <div class="playoverlay" style="display:block;"></div>
+                                        <span class="mediaIcon mdl-button mdl-button--icon mdl-js-button">
+                                            <i class="material-icons">pause</i>
+                                        </span>
+                                    </a>
+         <!--Second media caption--progress bar, start-time, end-time ids must match/add the anchor number from above ex. progressbar1, start-time1, end-time1-->
+                                    <div class="captionDiv" style="padding:0">
+                                        <div id ="progressbar1" class ="mdl-progress mdl-js-progress progressbar"></div>
+                                        <div id="counter" class="counter">
+                                            <div id="start-time1" class="start">00:00</div>
+                                            <div class="captionVideo">Chapter 1: Cotton</div>
+                                            <div id="end-time1" class="end">2:32</div>
+                                        </div>
+                                    </div>
+                                </div>
+          <!--Third media in Carousel--# the name of anchor link to match the id ex. 2 for name and Video2 for video id--replace mp4 and poster image below-->
+                                <div class="mySlides fade">
+        <!--name="x" replace name="2" then add the number 2 to video id...replace to video (id="video2") in video tag-->
+                                    <a href="#" name="2" onclick="playPauseVideo(this.name)" >
+                                        <video class="videoMedia" id="video2" width="480" height="270" poster="https://storage.googleapis.com/geteachkml4/npr/chapter2Poster.jpg">
+                                            <source src="https://storage.googleapis.com/geteachkml4/npr/machine.mp4" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                        </video>
+                                        <div class="playoverlay" style="display:block;"></div>
+                                        <span class="mediaIcon mdl-button mdl-button--icon mdl-js-button">
+                                            <i class="material-icons">pause</i>
+                                        </span>
+                                    </a>
+        <!--Third media caption--progress bar, start-time, end-time ids must match/add the anchor number from above ex. progressbar2, start-time2, end-time2-->
+                                    <div class="captionDiv" style="padding:0">
+                                        <div id ="progressbar2" class ="mdl-progress mdl-js-progress progressbar"></div>
+                                        <div id="counter" class="counter">
+                                            <div id="start-time2" class="start">00:00</div>
+                                            <div class="captionVideo">Chapter 2: The Machines</div>
+                                            <div id="end-time2" class="end">1:33</div>
+                                        </div>
+                                    </div>
+                                </div>
+        <!--Fourth media in Carousel--Best Image Aspect Ratio 3:2 Replace Image Source (src) bellow-->
+                                <div class="mySlides fade">
+                                    <img class="image"src="https://storage.googleapis.com/geteachkml4/seafloorage/QuakeSmall2.png">
+                                    <div class="captionDiv">
+                                        <div class="caption">Replace Caption</div>
+                                    </div>
+                                </div>
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            </div>
+                        </div>
+                        <div class="content" id="content">
+<!--Replace title text between div-->
+                            <div class="title">
+                                    Replace Title
+                            </div>
+<!--Replace mp3 source (src="youraudio.mp3")-->
+                            <audio id="audioI" style="display:none" >
+                                <source src="https://storage.googleapis.com/geteachkml4/simpleAudio.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio tag.
+                            </audio>
+                            <span onclick="playPause()" class="mdl-chip mdl-chip--contact audioSpan" style="width:85px;margin-left: 8px;">
+                                <span class="mdl-chip__contact mdl-color-text--white" style="margin-right: 5px;"id="playIcon"><i class="material-icons">play_arrow</i></span>
+                                <span class="mdl-chip__text" id="playButton">Play</span>
+                            </span>
+<!--Replace text for description--Every <p> needs to have a class="text"--Any html works-->
+                            <div class="description">
+                                <p class="text">Replace description...If you need a new paragraph the class="text"</p>
+                            </div>
+                        </div>
+<!--Best image height for footer is 24px with a max-width of 145px-->
+<!--If you don't want the footer is it best to delete the html within the logoLeft/LogoRight Div-->
+                        <div class="footer">
+                            <div class="logoLeft">
+                                <a href="https://twitter.com/geteach" target="_blank">
+                                    <img src="https://storage.googleapis.com/geteachkml4/logogeteachtemp.png" >
+                                </a>
+                            </div>
+                            <div class="logoRight" style="display:none">
+                            </div>
+                        </div>
+                    </main>
+                </div>
+			</main>
+        </div>
+    </body>
+    <script src="https://geteach.com/gti/drp/scripts/fullscreen.js"></script>
+    <script src="https://geteach.com/gti/drp/scripts/egew.js"></script>
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</html>

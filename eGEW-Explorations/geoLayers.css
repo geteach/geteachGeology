@@ -1,0 +1,85 @@
+.layersToggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0;
+    flex-shrink: 0;   
+}
+.layers-header {
+    width:100%;
+    height:72px;
+    background-color:#323439;
+    font-size:1rem;padding: 15px 0 0 0;
+    display: flex;
+    align-items: flex-end;
+    flex-shrink: 0.1
+}
+.layers-title {
+    height:57px;
+    color:#DADCE0;
+    font-size:1.5em;
+    margin-left:auto;
+    margin-right:auto;
+}
+.slidecontainer {
+    margin:15px 0 15px 10px;
+}
+.slidecontainerTab {
+    margin:15px 0 15px 50px;
+}
+.accordion {
+    background-color: #202124;
+    color: #DADCE0;
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid #45474e;
+    text-align: left;
+    outline: none;
+    line-height:57px;
+    font-size: 18px;
+    transition: 0.4s;
+    padding:0;
+    margin: 0;
+}
+
+.active, .accordion:hover {
+    width: 100%;
+    background-color: #2979ff;
+    border: 1px solid #45474e;
+}
+
+.accordion:after {
+    content: url('https://geteach.com/scripts/newearth/arrow32.png');
+    -ms-transform: rotate(0deg) scale(0.412); /* IE 9 */
+    -webkit-transform: rotate(0deg) scale(0.412); /* Safari */
+    transform: rotate(0deg) scale(0.412);
+    float:left;
+    color: #DADCE0;
+    margin-left: 5px;
+    padding-right: 3px;
+}
+
+.active:after {
+    content: url('https://geteach.com/scripts/newearth/arrow32.png');
+    -ms-transform: rotate(90deg) scale(0.412); /* IE 9 */
+    -webkit-transform: rotate(90deg) scale(0.412); /* Safari */
+    transform: rotate(90deg) scale(0.412);
+    margin-left: 2px;
+    padding-right: 6px;
+    margin-top: -2px;
+}
+
+.panel {
+    padding: 0 5px 0 5px;
+    background-color: #202124;
+    color: #DADCE0;
+    border-left: 1px solid #45474e;
+    border-right: 1px solid #45474e;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.panel1 {
+    border-bottom: 1px solid #45474e;
+}	
