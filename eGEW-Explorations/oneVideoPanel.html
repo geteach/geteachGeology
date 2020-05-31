@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Image Carousel No Audio</title>
+        <title>One Video No Audio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500|Roboto+Slab|Material+Icons" type="text/css" />
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" />
@@ -64,33 +64,39 @@
                             <button class="accordion">Geohazards</button>
                             <div class="panel">
                                 <div class="text">
-                                <div class='slidecontainer'>
-                                    <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='earthquakes'>
+                                    <div class='slidecontainer'>
+                                        <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='boundaries'>
 <!--Enable/disable layers on each stop by changing 'unchecked to checked' (enable) or 'checked' to unchecked (disable) default template is set all 'unchecked'-->
 <!--Please note...some of the State files are over 100M uncompressed. These will take some time to load and can have significant impact on performance-->
-                                        <input type='checkbox' id='earthquakes' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
-                                        <span class='mdl-switch__label toggleLabel'>Earthquakes</span>
-                                    </label>
+                                            <input type='checkbox' id='boundaries' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
+                                            <span class='mdl-switch__label toggleLabel'>Plate Boundaries</span>
+                                        </label>
+                                    </div>
+                                    <div class='slidecontainer'>
+                                        <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='earthquakes'>
+                                            <input type='checkbox' id='earthquakes' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
+                                            <span class='mdl-switch__label toggleLabel'>Earthquakes</span>
+                                        </label>
+                                    </div>
+                                    <div class='slidecontainer'>
+                                        <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='worldstressmap'>
+                                            <input type='checkbox' id='worldstressmap' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
+                                            <span class='mdl-switch__label toggleLabel'>World Stress Map</span>
+                                        </label>
+                                    </div>
+                                    <div class='slidecontainer'>
+                                        <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='holocenevolcanoes'>
+                                            <input type='checkbox' id='holocenevolcanoes' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
+                                            <span class='mdl-switch__label toggleLabel'>Holocene Volcanoes</span>
+                                        </label>
+                                    </div>
+                                    <div class='slidecontainer'>
+                                        <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='pleistocenevolcanoes'>
+                                            <input type='checkbox' id='pleistocenevolcanoes' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
+                                            <span class='mdl-switch__label toggleLabel'>Pleistocene Volcanoes</span>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class='slidecontainer'>
-                                    <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='holocenevolcanoes'>
-                                        <input type='checkbox' id='holocenevolcanoes' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
-                                        <span class='mdl-switch__label toggleLabel'>Holocene Volcanoes</span>
-                                    </label>
-                                </div>
-                                <div class='slidecontainer'>
-                                    <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='pleistocenevolcanoes'>
-                                        <input type='checkbox' id='pleistocenevolcanoes' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
-                                        <span class='mdl-switch__label toggleLabel'>Pleistocene Volcanoes</span>
-                                    </label>
-                                </div>
-                                <div class='slidecontainer'>
-                                    <label class='mdl-switch mdl-js-switch mdl-js-ripple-effect' for='boundaries'>
-                                        <input type='checkbox' id='boundaries' onclick='toggleSwitch(this.id)' class='mdl-switch__input layerToggle' unchecked />
-                                        <span class='mdl-switch__label toggleLabel'>Plate Boundaries</span>
-                                    </label>
-                                </div>
-                            </div>
                             </div>
                             <button class="accordion">US Quaternary Geology</button>
                             <div class="panel">
