@@ -15,6 +15,12 @@
     align-items: flex-end;
     flex-shrink: 0.1
 }
+#layerIcon{
+    color:#DADCE0;
+}
+#layerText {
+    margin-top:-5px;
+}
 .layers-title {
     height:57px;
     color:#DADCE0;
