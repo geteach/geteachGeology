@@ -1,3 +1,4 @@
+//Video play/Pause/Progress
   function playPauseVideo(clicked_id) {
     var playButton = document.getElementsByClassName("playoverlay");
     var mediaIcon = document.getElementsByClassName("mediaIcon");
@@ -58,6 +59,8 @@
 //progress bar and times
     video.ontimeupdate = function() {mediaTimmer(video, clicked_id, length)};
 };
+
+//Media Timmer
 function mediaTimmer(video, clicked_id, length) {
     var current_time = video.currentTime;
 
@@ -99,7 +102,8 @@ function mediaTimmer(video, clicked_id, length) {
 
     return current_time;
     }
-}
+};
+
 //audio script
 function playPause() {
     var audio = document.getElementById("audioI")
@@ -118,6 +122,8 @@ function playPause() {
         audio.pause();
     };
 };
+
+//Layers Panel Toggle
 function classchange(){
     var contentClass = document.getElementById("content");
     var element = document.getElementById("layers");
@@ -145,7 +151,8 @@ function classchange(){
         layerText.innerHTML = 'Layers';
     }
 
-}
+};
+
 //simple carousel script
 var slideIndex = 1;
 showSlides(slideIndex);
