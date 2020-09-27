@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Carousel Description Change</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500|Roboto+Slab|Material+Icons" type="text/css" />
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" />
+        <link rel="stylesheet" href="https://geteach.com/gti/drp/scripts/egew.css" type="text/css" />
+		<script>	
+			var carouselIndex = 1;
+			function descriptionChange(n) {
+			carouselSlides(carouselIndex += n);
+				function carouselSlides(n) {
+				var carousel = document.getElementsByClassName("mySlides");
+				var description = document.getElementById("description")
+					if (n > carousel.length) {carouselIndex = 1}
+					if (n < 1) {carouselIndex = carousel.length}
+//Each carouselIndex is the slide order...therfore index 1 goes with first media; index 2 goes with second media and so on.					
+					if (carouselIndex == 1){					
+						description.innerHTML = "<p class='text'>Description \"1\"</p>"	
+					}
+					if (carouselIndex == 2){
+						description.innerHTML = "<p class='text'>Description 2</p>"	
+					}
+				};
+//See this page for using strings in js. https://www.w3schools.com/js/js_strings.asp (ex. double quotes for index 1)					
+			};		
+		</script>
+    </head>
+    <body>
+        <div id="container">
+            <main class="panelMain">
+                <div class="mediaContain">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img class="image"src="https://storage.googleapis.com/geteachkml4/seafloorage/seafloor480.jpg">
+                            <div class="captionDiv">
+                                <div class="caption" >Replace caption</div>
+                            </div>
+                        </div>
+                        <div class="mySlides fade">
+                            <img class="image"src="https://storage.googleapis.com/geteachkml4/seafloorage/QuakeSmall2.png">
+                            <div class="captionDiv">
+                                <div class="caption" >Replace caption</div>
+                            </div>
+                        </div>
+<!--********Added descriptionChange(-1) and descriptionChange(1) below to index carousel in order to change description******** --> 						
+                        <a class="prev" onclick="plusSlides(-1); descriptionChange(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1); descriptionChange(1)">&#10095;</a>
+                    </div>
+                </div>
+                <div class="content" id="content">
+                    <div class="title">
+                         Replace Title
+                    </div>
+<!--********Added div id="description" to reference in javascript above******** --> 	
+                    <div class="description" id="description">
+                        <p class="text">Description "1"</p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="logoLeft">
+                        <a href="https://twitter.com/geteach" target="_blank">
+                            <img src="https://storage.googleapis.com/geteachkml4/logogeteachtemp.png" >
+                        </a>
+                    </div>
+                    <div class="logoRight" style="display:none">
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+    <script src="https://geteach.com/gti/drp/scripts/egew.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</html>
