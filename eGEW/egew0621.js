@@ -1,6 +1,6 @@
 //Video play/Pause/Progress
   function playPauseVideo() {
-	var clicked_id = this.getAttribute("name");  
+    var clicked_id = this.getAttribute("name");  
     var playButton = document.getElementsByClassName("playoverlay");
     var mediaIcon = document.getElementsByClassName("mediaIcon");
     var video = document.getElementById('video'+ clicked_id);
@@ -61,11 +61,10 @@
     video.ontimeupdate = function() {mediaTimmer(video, clicked_id, length)};
 };
 
-	var playPauseVideoClass = document.getElementsByClassName("playPauseVideoClass");
-	
-	for (var i = 0; i < playPauseVideoClass.length; i++) {
-		playPauseVideoClass[i].addEventListener('click', playPauseVideo, false);
-	};
+var playPauseVideoClass = document.getElementsByClassName("playPauseVideoClass");
+for (var i = 0; i < playPauseVideoClass.length; i++) {
+    playPauseVideoClass[i].addEventListener('click', playPauseVideo, false);
+};
 
 //Media Timmer
 function mediaTimmer(video, clicked_id, length) {
@@ -112,10 +111,10 @@ function mediaTimmer(video, clicked_id, length) {
 };
 
 //audio script
-	var audioPlay = document.getElementsByClassName("audioPlay");
-	for (var i = 0; i < audioPlay.length; i++) {
-		audioPlay[i].addEventListener('click', playPause, false);
-	};
+var audioPlay = document.getElementsByClassName("audioPlay");
+for (var i = 0; i < audioPlay.length; i++) {
+    audioPlay[i].addEventListener('click', playPause, false);
+};
 
 function playPause() {
     var audio = document.getElementById("audioI")
