@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Quiz Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500|Roboto+Slab|Material+Icons" type="text/css" />
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" />
+        <link rel="stylesheet" href="https://geteach.com/gti/drp/scripts/egew.css" type="text/css" />
+    </head>
+    <body>
+        <div id="container">
+            <main class="panelMain">
+                <div class="mediaContain">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Tokyo_Tower_and_Tokyo_Skytree_in_Views_from_Roppongi_Hills_Mori_Tower_IMG_1617_20130314.JPG" />
+                            <div class="captionDiv">
+                                <div class="caption">Image Source: <a href="https://commons.wikimedia.org/wiki/File:Tokyo_Tower_and_Tokyo_Skytree_in_Views_from_Roppongi_Hills_Mori_Tower_IMG_1617_20130314.JPG" target="_blank">Wikimedia </a></div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="title">
+                        World Geography Quiz
+                    </div>
+                    <div class="snippet">
+                        Question 1 of 3
+                    </div>
+                    <div class="description">
+                        <div class="Qtext">
+                            Which is the largest city in the world by population?
+                        </div>
+                        <button id="buttonA" class="mdl-chip mdl-chip--contact answerClick1">
+                            <span class="mdl-chip__contact mdl-color-text--white">
+                                <span>A</span>
+                            </span>
+                            <span class="mdl-chip__text">Tokyo, Japan</span>
+                        </button>
+                        <button id="buttonB" class="mdl-chip mdl-chip--contact answerClick1">
+                            <span class="mdl-chip__contact mdl-color-text--white">
+                                <span>B</span>
+                            </span>
+                            <span class="mdl-chip__text">Delhi, India</span>
+                        </button>
+                        <button id="buttonC" class="mdl-chip mdl-chip--contact answerClick1">
+                            <span class="mdl-chip__contact mdl-color-text--white">
+                                <span>C</span>
+                            </span>
+                            <span class="mdl-chip__text">Shanghai, China</span>
+                        </button>
+                        <br>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="logoLeft">
+                        <a href="https://twitter.com/geteach" target="_blank">
+                            <img src="https://storage.googleapis.com/geteachkml4/logogeteachtemp.png" >
+                        </a>
+                    </div>
+                    <div class="logoRight" style="display:none">
+                        <a href="#08405909CE10A26FAD2E;show" id="A1show"></a>
+                        <a href="#04F65FF1BD10A2724883;show" id="A2show"></a>
+                        <a href="#03037E124810A2743D1E;show" id="A3show"></a>
+                        <a href="#08405909CE10A26FAD2E;hide" id="A1hide"></a>
+                        <a href="#04F65FF1BD10A2724883;hide" id="A2hide"></a>
+                        <a href="#03037E124810A2743D1E;hide" id="A3hide"></a>
+                        <a href="#08405909CE10A26FAD2E;balloonFlyto" id="A1go"></a>
+                        <a href="#04F65FF1BD10A2724883;balloonFlyto" id="A2go"></a>
+                        <a href="#03037E124810A2743D1E;balloonFlyto" id="A3go"></a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+	<script>
+		var answerClick1 = document.getElementsByClassName("answerClick1");
+		for (var i = 0; i < answerClick1.length; i++) {
+			answerClick1[i].addEventListener('click', answerClick, false);
+		};
+		
+		function answerClick(){
+			document.getElementById('A1show').click();
+			document.getElementById('A1go').click();
+		};
+		window.onload = function(){ 
+			document.getElementById('A1hide').click();
+			document.getElementById('A2hide').click();	
+			document.getElementById('A3hide').click();					
+		}
+    </script>
+    <script src="https://geteach.com/gti/drp/scripts/egew.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</html>
