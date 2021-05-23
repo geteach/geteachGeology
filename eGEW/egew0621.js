@@ -1,6 +1,6 @@
 //Video play/Pause/Progress
   function playPauseVideo() {
-    var clicked_id = this.getAttribute("name");  
+	var clicked_id = this.getAttribute("name");  
     var playButton = document.getElementsByClassName("playoverlay");
     var mediaIcon = document.getElementsByClassName("mediaIcon");
     var video = document.getElementById('video'+ clicked_id);
@@ -61,10 +61,11 @@
     video.ontimeupdate = function() {mediaTimmer(video, clicked_id, length)};
 };
 
-var playPauseVideoClass = document.getElementsByClassName("playPauseVideoClass");
-for (var i = 0; i < playPauseVideoClass.length; i++) {
-    playPauseVideoClass[i].addEventListener('click', playPauseVideo, false);
-};
+	var playPauseVideoClass = document.getElementsByClassName("playPauseVideoClass");
+	
+	for (var i = 0; i < playPauseVideoClass.length; i++) {
+		playPauseVideoClass[i].addEventListener('click', playPauseVideo, false);
+	};
 
 //Media Timmer
 function mediaTimmer(video, clicked_id, length) {
@@ -111,10 +112,10 @@ function mediaTimmer(video, clicked_id, length) {
 };
 
 //audio script
-var audioPlay = document.getElementsByClassName("audioPlay");
-for (var i = 0; i < audioPlay.length; i++) {
-    audioPlay[i].addEventListener('click', playPause, false);
-};
+	var audioPlay = document.getElementsByClassName("audioPlay");
+	for (var i = 0; i < audioPlay.length; i++) {
+		audioPlay[i].addEventListener('click', playPause, false);
+	};
 
 function playPause() {
     var audio = document.getElementById("audioI")
@@ -167,38 +168,41 @@ function classchange(){
 
 //simple carousel script
 var slideIndex = 1;
-showSlides(slideIndex);
-	
+var slideClass = document.getElementsByClassName('slideshow-container');
+if (slideClass.length > 0) {
+    showSlides(slideIndex);
 
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
     }
-    slides[slideIndex-1].style.display = "block";
-}
 
-var plusSlidesClass = document.getElementsByClassName("plusSlidesClass");
-for (var i = 0; i < plusSlidesClass.length; i++) {
-	plusSlidesClass[i].addEventListener('click',function(){
-		plusSlides(1);
-	}, false);
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+    //Plus Carousel Eventlistern class=plusSlidesClass
+    var plusSlidesClass = document.getElementsByClassName("plusSlidesClass");
+    for (var i = 0; i < plusSlidesClass.length; i++) {
+        plusSlidesClass[i].addEventListener('click', function () {
+            plusSlides(1);
+        }, false);
+    };
+    //Minus Carousel Eventlistern class=minusSlidesClass
+    var minusSlidesClass = document.getElementsByClassName("minusSlidesClass");
+    for (var i = 0; i < minusSlidesClass.length; i++) {
+        minusSlidesClass[i].addEventListener('click', function () {
+            plusSlides(-1);
+        }, false);
+    };
 };
-
-var minusSlidesClass = document.getElementsByClassName("minusSlidesClass");
-for (var i = 0; i < minusSlidesClass.length; i++) {
-	minusSlidesClass[i].addEventListener('click',function(){
-		plusSlides(-1);
-	}, false);
-};	
